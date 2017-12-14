@@ -1,0 +1,21 @@
+<span style="margin-top: 10px; margin-left: 10px">
+    <a class="blue lighten-3 btn btn-icon" ng-click="modal('#add-cluster-modal')"><i class="fa fa-plus"></i></a>
+    <a class="blue lighten-3 btn btn-icon" ng-disabled="checkedClusterCount() !== 1" ng-click="modal('#edit-cluster-modal')"><i class="fa fa-edit"></i></a>
+    <a class="blue lighten-3 btn btn-icon" ng-disabled="!checkedClusterCount()" ng-click="modal('#delete-cluster-modal')"><i class="fa fa-trash-o"></i></a>
+</span>
+<ul class="collapsible" data-collapsible="accordion">
+    <li ng-hide="clusterCount()"><div class="collapsible-header">No Clusters Found</div></li>
+    <li ng-repeat="cluster in clusters">
+        <div class="collapsible-header" ng-class="{ 'blue lighten-5' : selectedCluster === cluster.id }" ng-click="selectCluster(cluster.id, false)">
+            <input type="checkbox" id="{{ cluster.id }}" ng-model="cluster.checked" ng-change="check(cluster.id)" /><label for="{{ cluster.id }}">&nbsp;</label>{{ cluster.name }}
+        </div>
+        <div class="collapsible-body">
+            <div ng-repeat="zookeeper in cluster.zookeepers"><label><i class="fa fa-lg fa-server"></i>{{ zookeeper }}</label><br /></div>
+            <label><i class="fa fa-lg fa-area-chart"></i>JMX {{ cluster.jmx ? "Enabled" : "Disabled" }}</label>
+        </div>
+    </li>
+</ul>
+
+<div ng-include="'modals/addCluster.html'"></div>
+<div ng-include="'modals/editCluster.html'"></div>
+<div ng-include="'modals/deleteCluster.html'"></div>

@@ -1,0 +1,27 @@
+<div id="add-cluster-modal" class="modal" cg-busy="clusterPromise">
+    <div class="modal-content">
+        <h4>Add Cluster</h4>
+        <div class="row">
+            <div class="input-field col l2">
+                <input ng-model="xCluster.name" type="text" placeholder="Cluster Name" required />
+            </div>
+            <div class="input-field col l10">
+                <input ng-model="xCluster.zookeepers" type="text" placeholder="Zookeeper Servers (comma-separated)" required />
+            </div>
+            <div class="input-field col l2">
+                <input id="add-cluster-jmx-port" ng-model="xCluster.jmx" type="checkbox"  />
+                <label for="add-cluster-jmx-port">Enable JMX</label>
+            </div>
+            <div class="input-field col l5">
+                <input ng-model="xCluster.jmxUsername" type="text" placeholder="JMX Username" />
+            </div>
+            <div class="input-field col l5">
+                <input ng-model="xCluster.jmxPassword" type="password" placeholder="JMX Password" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action btn-flat" ng-click="add();">Add</a>
+        <a class="modal-action modal-close btn-flat" ng-click="cancel();">Cancel</a>
+    </div>
+</div>

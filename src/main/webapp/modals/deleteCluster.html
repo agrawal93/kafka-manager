@@ -1,0 +1,13 @@
+<div id="delete-cluster-modal" class="modal" cg-busy="clusterPromise">
+    <div class="modal-content">
+        <h4>Delete Cluster/s</h4>
+        <p>Are you sure you want to delete the following clusters: </p>
+        <ul class="collection">
+            <li class="collection-item" ng-repeat="(clusterId, clusterName) in checkedClusters">{{ clusterName }}</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action btn-flat" ng-click="remove();">Remove</a>
+        <a class="modal-action modal-close btn-flat">Cancel</a>
+    </div>
+</div>

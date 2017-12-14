@@ -1,0 +1,24 @@
+<div id="brokers" cg-busy="brokerPromise">
+    <div id="brokerPages" class="row valign-wrapper">
+        <div class="col s12 m7 offset-s8 offset-m4"><pagination class='right-align' page='pageNo' page-size='limit' total='getKeys().length' show-prev-next='true' hide-if-empty='true' adjacent='1' pagination-action='changePage(page)' /></div>
+        <div class="col s4 m1" ng-hide="getKeys().length < limit">
+            <input id="brokerPageLimit" type="number" ng-model="limit" ng-change="changeLimit()" placeholder="Limit" />
+            <label for="brokerPageLimit">Records/Page</label>
+        </div>
+    </div>
+    <ul class="collapsible row" data-collapsible="accordion">
+        <div class="collapsible-header blue lighten-5" style="font-weight: 600">
+            <li class="col m1">Broker Id</li>
+            <li class="col m7">Host</li>
+            <li class="col m2">Port</li>
+            <li class="col m2">JMX Port</li>
+        </div>
+        <li class="col m12" ng-hide="getKeys().length > 0"><div class="collapsible-header">No Brokers Found</div></li>
+        <div class="collapsible-header" ng-repeat="broker in getKeys() | limitTo:limit:limit*(pageNo-1)">
+            <li class="col m1">{{ getBroker(broker).id }}</li>
+            <li class="col m7">{{ getBroker(broker).host}}</li>
+            <li class="col m2">{{ getBroker(broker).port }}</li>
+            <li class="col m2">{{ getBroker(broker).jmx }}</li>
+        </div>
+    </ul>
+</div>
