@@ -1,0 +1,45 @@
+<div id="topics" cg-busy="topicPromise">
+    <div id="topicPages" class="row valign-wrapper">
+        <div class="col s8 m4" style="margin-left: 0"><input type="text" ng-model="searchTopic" ng-change="changeSearch()" placeholder="Search Topics" /></div>
+        <div class="col s12 m7"><pagination class='right-align' page='pageNo' page-size='limit' total='filteredTopics.length' show-prev-next='true' hide-if-empty='true' adjacent='1' pagination-action='changePage(page)' /></div>
+        <div class="col s4 m1" ng-hide="filteredTopics.length < limit">
+            <input id="topicPageLimit" type="number" ng-model="limit" ng-change="changeLimit()" placeholder="Limit" />
+            <label for="topicPageLimit">Records/Page</label>
+        </div>
+    </div>
+    <ul class="collapsible row" data-collapsible="accordion">
+        <div class="collapsible-header blue lighten-5" style="font-weight: 600">
+            <li class="col m8">Topic Name</li>
+            <li class="col m2">Brokers</li>
+            <li class="col m2">Partitions</li>
+        </div>
+        <li class="col m12" ng-hide="getKeys() || filteredTopics.length > 0"><div class="collapsible-header">No Topics Found</div></li>
+        <li ng-repeat="topic in filteredTopics | limitTo:limit:limit*(pageNo-1)">
+            <div class="collapsible-header row">
+                <div class="col m8">{{ getTopic(topic).name }}</div>
+                <div class="col m2">{{ getTopic(topic).brokers }}</div>
+                <div class="col m2">{{ getTopic(topic).partitions.length }}</div>
+            </div>
+            <div class="collapsible-body">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Partition #</th>
+                            <th>Leader</th>
+                            <th>Replicas</th>
+                            <th>In-Sync Replicas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="partition in getTopic(topic).partitions">
+                            <td>{{ partition.partition }}</td>
+                            <td>{{ partition.leader }}</td>
+                            <td>{{ partition.replicas.join(", ") }}</td>
+                            <td>{{ partition.isr.join(", ") }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    </ul>
+</div>

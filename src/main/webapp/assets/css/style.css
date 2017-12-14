@@ -1,0 +1,89 @@
+/* index.html */
+
+body {
+    height: 91.4vh;
+    font-family: "Merriweather";
+}
+
+ng-view {
+    height: 91.4vh;
+    margin: 0;
+}
+
+#app-heading {
+    margin-left: 20px;
+}
+
+.btn-icon {
+    box-shadow: none;
+    padding: 0 10px;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.clear {
+    clear: both;
+    margin: 2px 0;
+}
+
+.row {
+    margin: 0;
+}
+
+/* clusters */
+
+#cluster-nav {
+    height: 91.4vh;
+    padding: 0;
+}
+
+#cluster-nav > ul {
+    margin-top: 10px;
+    box-shadow: none;
+}
+
+#cluster-nav .collapsible-body {
+    padding: 8px 0;
+    padding-left: 7%;
+}
+
+#cluster-nav .collapsible-body i {
+    padding: 0.2vh 2%;
+}
+
+#add-cluster-modal.modal {
+    top: 30% !important;
+}
+
+/* brokers & topics */
+
+#brokers-topics .tab > a.active {
+    color: #42a5f5;
+}
+
+#brokers-topics .tab > a {
+    color: #90caf9;
+}
+
+#brokers-topics .tabs > .indicator {
+    background-color: #42a5f5;
+}
+
+#brokers > .row, #topics > .row {
+    margin: 17px 0.8rem;
+}
+
+#topicPages.row, #brokerPages.row {
+    margin: 0 0.8rem;
+}
+
+#topicPages.row input, #brokerPages.row input, pagination ul {
+    margin-bottom: 0;
+}
+
+#topics table th, #topics table td {
+    padding: 5px 1rem;
+}

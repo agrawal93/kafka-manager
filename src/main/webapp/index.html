@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kafka Manager</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Load Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|PT+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Load Styles -->
+        <!--
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/materialize.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/angular-busy.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+        -->
+
+        <!-- Production -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-busy/4.1.4/angular-busy.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body ng-app="kafka-manager">
+
+    <ng-view></ng-view>
+
+    <!-- Load all the scripts -->
+    <!--
+    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/angular.js" type="text/javascript"></script>
+    <script src="assets/js/angular-route.js" type="text/javascript"></script>
+    <script src="assets/js/materialize.js" type="text/javascript"></script>
+    <script src="assets/js/angular-materialize.js" type="text/javascript"></script>
+    <script src="assets/js/angular-busy.js" type="text/javascript"></script>
+    -->
+
+    <!-- Production -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-busy/4.1.4/angular-busy.min.js" type="text/javascript"></script>
+
+    <!-- Load the main module -->
+    <script src="assets/js/script.js" type="text/javascript"></script>
+
+    <!-- Load the services -->
+    <script src="services/pagination.service.js" type="text/javascript"></script>
+    <script src="services/base.service.js" type="text/javascript"></script>
+    <script src="services/cluster.service.js" type="text/javascript"></script>
+    <script src="services/broker.service.js" type="text/javascript"></script>
+    <script src="services/topic.service.js" type="text/javascript"></script>
+
+    <!-- Load the controllers -->
+    <script src="controllers/home.controller.js" type="text/javascript"></script>
+    <script src="controllers/cluster.controller.js" type="text/javascript"></script>
+    <script src="controllers/broker.controller.js" type="text/javascript"></script>
+    <script src="controllers/topic.controller.js" type="text/javascript"></script>
+</body>
+</html>
